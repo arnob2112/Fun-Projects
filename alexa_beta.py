@@ -10,6 +10,7 @@ listener = sr.Recognizer()
 alexa = pyttsx3.init()
 voices = alexa.getProperty('voices')
 alexa.setProperty('voice', voices[1].id)
+run_app = True
 
 
 def talk(text):
@@ -28,9 +29,8 @@ def take_command():
             print("// " + command)
             if 'alexa' in command:
                 command = command.replace('alexa', '')
-                #print("== " + command)
-    except:
-        pass
+    except Exception as e:
+        print("exception: ", e)
 
     return command
 
@@ -60,10 +60,14 @@ def run_alexa():
         joke = pyjokes.get_joke()
         print(joke)
         talk(joke)
+    elif "stop" == command:
+        global run_app
+        run_app = False
+        print("stopped")
     else:
         talk("Sorry, I didn't understand you. But I am going to search for you.")
         pywhatkit.search(command)
 
 
-while True:
+while run_app:
     run_alexa()
