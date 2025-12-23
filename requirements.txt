@@ -5,3 +5,5 @@ pyttsx3
 pywhatkit
 pyjokes
 pygame
+python-docx
+docx2pdf
