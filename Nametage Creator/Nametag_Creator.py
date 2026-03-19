@@ -3,11 +3,11 @@ from docx2pdf import convert
 
 replacements = {
     "OC": "OC",
-    "এহসান": "আহাবাব",
-    "EHSHAN": "AHABAB",
+    "এহসান": "জিসান",
+    "EHSHAN": "JESUN",
     "M-4(A)": "M-4(A)",
-    "7.": "4.",
-    "14299": "14281"
+    "7.": "11.",
+    "14299": "14353"
 }
 
 doc = Document("Nametag - Printable - Previous.docx")

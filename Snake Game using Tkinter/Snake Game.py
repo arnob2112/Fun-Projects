@@ -112,8 +112,27 @@ class Snake(tk.Canvas):
             if food_positions not in self.snake_positions:
                 return food_positions
 
+    def restart_game(self):
+        self.snake_positions = [(100, 100), (80, 100), (60, 100)]
+        self.food_positions = self.set_food_position()
+        self.score = 0
+        self.direction = "Right"
+
+        global move_per_second
+        move_per_second = 10
+
+        self.delete(tk.ALL)
+
+        self.create_object()
+
+        self.restart_button.destroy()
+
+
+        self.after(GAME_SPEED, self.perform_actions)
+
     def end_game(self):
         self.delete(tk.ALL)
+
         self.create_text(
             self.winfo_width() / 2,
             self.winfo_height() / 2,
@@ -121,13 +140,32 @@ class Snake(tk.Canvas):
             fill="#fff",
             font=("Arial", 24)
         )
-        self.create_text(
-                         self.winfo_width() / 2,
-                         self.winfo_height() / 1.8,
-                         text="Created by Arnob.",
-                         fill="#fcc603",
-                         font=("Arial", 14))
 
+        self.create_text(
+            self.winfo_width() / 2,
+            self.winfo_height() / 1.8,
+            text="Created by Arnob.",
+            fill="#fcc603",
+            font=("Arial", 14)
+        )
+
+        self.restart_button = tk.Button(
+            self,
+            text="Restart",
+            font=("Arial", 14),
+            command=self.restart_game,
+            bg="black",          
+            fg="white",         
+            activebackground="black",  
+            activeforeground="white",  
+            bd=0,                
+            highlightthickness=0
+        )
+        self.create_window(
+            self.winfo_width() / 2,
+            self.winfo_height() / 1.6,
+            window=self.restart_button
+        )
 
 root = tk.Tk()
 root.title("Snake Game - Arnob")
