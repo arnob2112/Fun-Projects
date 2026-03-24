@@ -7,3 +7,27 @@ pyjokes
 pygame
 python-docx
 docx2pdf
+
+# for DS and Ml
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+plotly
+statsmodels
+jupyter
+notebook
+ipython
+xgboost
+lightgbm
+tensorflow
+torch
+keras
+pydot
+graphviz
+joblib
+requests
+beautifulsoup4
+lxml
